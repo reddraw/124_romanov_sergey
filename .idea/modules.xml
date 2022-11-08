@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/124_romanov_sergey.iml" filepath="$PROJECT_DIR$/.idea/124_romanov_sergey.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/task_1/task_1.iml" filepath="$PROJECT_DIR$/Homework/task_1/task_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/task_2/task_2.iml" filepath="$PROJECT_DIR$/Homework/task_2/task_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/task_3/task_3.iml" filepath="$PROJECT_DIR$/Homework/task_3/task_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/task_4/task_4.iml" filepath="$PROJECT_DIR$/Homework/task_4/task_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/task_5/task_5.iml" filepath="$PROJECT_DIR$/Homework/task_5/task_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/task_6/task_6.iml" filepath="$PROJECT_DIR$/Homework/task_6/task_6.iml" />
+    </modules>
+  </component>
+</project>
