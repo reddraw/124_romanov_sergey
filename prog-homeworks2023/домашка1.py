@@ -32,7 +32,7 @@ if k == "1":
     iss = str(iss)
     for i in range(0, len(iss) - 2):
         if iss[i] + iss[i + 1] + iss[i + 2] == "alt":
-            for j in range(11, 17):
+            for j in range(11, 18):
                 r = r + iss[i + j]
     print(float(r))
     r = float(r) + 6371
