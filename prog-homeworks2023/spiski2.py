@@ -15,6 +15,6 @@ while b>0:
         b1.append(f)
         b-=1
 for i in a1:
-    if i not in b1:
+    if i in b1:
         print (i)
 
