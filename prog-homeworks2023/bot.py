@@ -2,33 +2,47 @@ import telebot
 import random
 bot=telebot.TeleBot(input("Введите токен вашего бота"))
 @bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id,"Привет, поиграем в игру? Сейчас я загадаю число, вам надо угадать" )
-    chislo=random.randint(1, 101)
-    count=0
-    bot.send_message(start.chat.id, "Угадайте число!")
+def start(start):
+    imya=start.from_user.username
+    bot.send_message(start.chat.id, "Здравствуйте "+str(imya)+", я загадал число, введите ваш вариант. ")
+    chislo=random.randint(1,101)
+    counter=0
     def igra():
         @bot.message_handler(content_types=["text"])
-        def check_chislo(message):
-            bot.send_message(message.chat.id, "Введите число")
-            if variant != chislo:
-                if variant > chislo:
-                    bot.send_message(message.chat.id, "Ваше число больше задуманного")
-                    count += 1
-                    check_chislo()
-                else:
-                    bot.send_message(message.chat.id, "Ваше число меньше задуманного")
-                    count += 1
-                    check_chislo()
+        def proverka(message):
+            nonlocal chislo
+            nonlocal counter
+            nonlocal imya
+            try:
+                variant = int(message.text)
+            except ValueError:
+                bot.send_message(message.chat.id, 'Вы ввели некорректное значение числа')
+                igra()
+                return 0
+            if variant > 101 or variant < 1:
+                bot.send_message(message.chat.id, 'Вы ввели некорректное значение числа')
+                igra()
+                return 0
+            elif variant > chislo:
+                bot.send_message(message.chat.id, 'Ваше число больше загаданного')
+                counter += 1
+                igra()
+                return 0
+            elif variant < chislo:
+                bot.send_message(message.chat.id, 'Ваше число меньше загаданного')
+                counter += 1
+                igra()
+                return 0
             else:
-                count += 1
-                bot.send_message(message.chat.id, "Поздравляю, вы выиграли за " + str(count) + "попыток/ки")
-                start()
+                counter += 1
+                bot.send_message(message.chat.id, 'Поздравляю, '+ str(imya)+' вы угадали за ' + str(counter) + ' попыток')
+                chislo = random.randint(1, 101)
+                counter = 0
 
-        check_chislo()
     igra()
 
 
 
 bot.polling()
+
 
