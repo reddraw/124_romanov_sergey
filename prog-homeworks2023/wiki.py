@@ -2,12 +2,7 @@ import requests
 import urllib
 month=input("Напишите месяц вашего рождения")
 god=input("Напишите год вашего рождения")
-nomermonth=int()
 facts=str()
-spisok=["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
-for i in range(1,len(spisok)):
-    if month.lower()==spisok[i]:
-        nomermonth=i+1
 def season_events(month, god,facts):
     page=requests.get("https://ru.wikipedia.org/wiki/"+urllib.parse.quote("Категория:"+month+"_"+god+"_года")).text
     page = str(page)
@@ -20,9 +15,8 @@ def season_events(month, god,facts):
             while page[j] != '"':
                 fact += page[j]
                 j += 1
-            if page[j] == '"':
-                facts = facts + fact+";"
-                fact = str()
+            facts = facts + fact+";"
+            fact = str()
     file = open(month + '(' + str(god) + ').txt', 'w')
     file.write("Вы родились в месяце " + str(month) + " в " + str(god) + " году, события, которые произошли в этот год и этот же месяц:" + str(facts))
 season_events(month,god,facts)
