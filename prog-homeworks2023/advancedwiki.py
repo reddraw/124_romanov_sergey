@@ -9,7 +9,6 @@ factsendigit="Факты на английском языке(с цифрами)
 factsmixed="Остальные факты:"
 factsrus="Факты на русском языке(без скобок и цифр):"
 if month.lower=="август" or month.lower=="март":
-    month = month.rstrip(month[-1])
     month=month+"а"
 else:
     month = month.rstrip(month[-1])
